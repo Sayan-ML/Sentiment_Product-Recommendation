@@ -43,3 +43,5 @@ Recommends top 5 products for any valid user ID
 🔹 Page 1: User enters a User ID → gets top 5 product recommendations
 
 🔹 Page 2: User enters any review → sentiment is predicted (Positive/Negative)
+
+Streamlit App :- https://sentiment-recommendation-sayan.streamlit.app/
