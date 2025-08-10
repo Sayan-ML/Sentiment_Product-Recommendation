@@ -10,45 +10,7 @@ import re
 from nltk.tokenize import TreebankWordTokenizer
 from nltk.corpus import stopwords, wordnet
 from nltk.stem.wordnet import WordNetLemmatizer
-# ===== Custom Dark Theme CSS =====
-st.markdown("""
-    <style>
-    /* Style buttons */
-    div.stButton > button:first-child {
-        background-color: #00ADB5;
-        color: white;
-        border-radius: 8px;
-        height: 3em;
-        width: 100%;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-    div.stButton > button:first-child:hover {
-        background-color: #05C7D3;
-        color: black;
-    }
 
-    /* Style tables */
-    .stDataFrame table {
-        border-collapse: collapse;
-        width: 100%;
-        font-size: 14px;
-    }
-    .stDataFrame th {
-        background-color: #00ADB5;
-        color: white !important;
-    }
-    .stDataFrame td {
-        background-color: #1E1E1E;
-        color: white !important;
-    }
-
-    /* Title & header styles */
-    h1, h2, h3, h4 {
-        color: #00ADB5;
-    }
-    </style>
-""", unsafe_allow_html=True)
 
 
 
@@ -149,5 +111,6 @@ with tab2:
                 st.error("❌ Negative Review")
         else:
             st.warning("Please enter a valid review.")
+
 
 
