@@ -1,3 +1,18 @@
+import streamlit as st
+import os
+import pickle
+import joblib
+import pandas as pd
+import numpy as np
+import nltk
+import string
+import re
+from nltk.tokenize import TreebankWordTokenizer
+from nltk.corpus import stopwords, wordnet
+from nltk.stem.wordnet import WordNetLemmatizer
+
+
+
 # ========= Streamlit App =========
 st.set_page_config(page_title="Sentiment-Based Recommender", layout="centered")
 
@@ -95,3 +110,4 @@ with tab2:
                 st.error("❌ Negative Review")
         else:
             st.warning("Please enter a valid review.")
+
