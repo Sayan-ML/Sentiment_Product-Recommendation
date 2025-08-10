@@ -119,7 +119,8 @@ tab1, tab2 = st.tabs(["📌 Recommend by User", "📝 Classify Review"])
 
 # --- Tab 1: Recommend Products ---
 with tab1:
-    user_input = st.text_input("Enter your User ID:")
+    user_ids = sorted(model.user_final_rating.index.tolist())
+    user_input = st.selectbox("Select your User ID:", user_ids)
     if st.button("Get Top 5 Recommendations"):
         if user_input:
             result = model.getSentimentRecommendations(user_input)
@@ -143,3 +144,4 @@ with tab2:
                 st.error("❌ Negative Review")
         else:
             st.warning("Please enter a valid review.")
+
