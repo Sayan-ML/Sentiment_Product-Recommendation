@@ -16,8 +16,6 @@ from nltk.stem.wordnet import WordNetLemmatizer
 import joblib
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
-import xgboost as xgb
-import lightgbm as lgb
 
 # NLTK downloads
 nltk.download('stopwords')
@@ -25,6 +23,7 @@ nltk.download('punkt')
 nltk.download('averaged_perceptron_tagger')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
+
 
 # ---------------- Class Definition ----------------
 class SentimentRecommenderModel:
@@ -34,14 +33,16 @@ class SentimentRecommenderModel:
     CLEANED_DATA = 'cleaned_data.pkl'
 
     def __init__(self):
+        # --- Load cleaned data first (always) ---
+        self.cleaned_data = pickle.load(open(self.CLEANED_DATA, 'rb'))
+
         # --- Load ML model ---
         self.model = joblib.load(open(self.MODEL_NAME, 'rb'))
 
         # --- Load TF-IDF Vectorizer ---
         self.vectorizer = joblib.load(open(self.VECTORIZER, 'rb'))
         if not hasattr(self.vectorizer, 'idf_'):
-            # Fit on cleaned data if IDF missing
-            self.cleaned_data = pickle.load(open(self.CLEANED_DATA, 'rb'))
+            # Fit vectorizer on cleaned data if IDF missing
             self.vectorizer.fit(self.cleaned_data["reviews_full_text"].astype(str))
 
         # --- Load recommendation data ---
@@ -53,10 +54,6 @@ class SentimentRecommenderModel:
         self.bert_model = AutoModelForSequenceClassification.from_pretrained("nlptown/bert-base-multilingual-uncased-sentiment")
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.bert_model.to(self.device)
-
-        # --- Load ML boosting models if needed ---
-        # Example: self.xgb_model = joblib.load("xgb_model.pkl")
-        # Example: self.lgb_model = joblib.load("lgb_model.pkl")
 
         # --- NLP preprocessing ---
         self.lemmatizer = WordNetLemmatizer()
@@ -129,6 +126,7 @@ class SentimentRecommenderModel:
         words = [self.lemmatizer.lemmatize(tag[0], self.get_wordnet_pos(tag[1])) for tag in word_pos_tags]
         return " ".join(words)
 
+
 # ---------------- Streamlit App ----------------
 st.set_page_config(page_title="Sentiment-Based Recommender", layout="centered")
 st.title("🛒 Sentiment-Based Product Recommender")
@@ -138,9 +136,11 @@ model = SentimentRecommenderModel()
 
 tab1, tab2 = st.tabs(["📌 Recommend by User", "📝 Classify Review"])
 
-# --- Tab 1: Recommend Products ---
+# --- Tab 1: Recommend Products with Dropdown ---
 with tab1:
-    user_input = st.text_input("Enter your User ID:")
+    user_ids = model.user_final_rating.index.tolist()  # all user IDs
+    user_input = st.selectbox("Select your User ID:", options=user_ids)
+
     if st.button("Get Top 5 Recommendations"):
         if user_input:
             result = model.getSentimentRecommendations(user_input)
@@ -150,7 +150,7 @@ with tab1:
             else:
                 st.warning("User not found or no recommendations available.")
         else:
-            st.warning("Please enter a valid user ID.")
+            st.warning("Please select a valid user ID.")
 
 # --- Tab 2: Classify Review ---
 with tab2:
