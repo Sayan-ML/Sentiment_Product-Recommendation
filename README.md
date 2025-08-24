@@ -1,49 +1,91 @@
-Sentiment-Based Product Recommendation & Analysis System
-A complete end-to-end system that performs sentiment analysis on product reviews and generates personalized product recommendations based on user behavior and review sentiment. The project includes a Streamlit web app for both sentiment prediction and user-specific recommendations.
+# 🛒 Sentiment-Based Product Recommendation & Analysis System
 
-🔍 Features
-✅ Sentiment Analysis using:
+![Python](https://img.shields.io/badge/Python-3.9-blue?logo=python&logoColor=white)  
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red?logo=streamlit)  
+![Scikit-learn](https://img.shields.io/badge/ML-Scikit--learn-green?logo=scikitlearn)  
+![TensorFlow](https://img.shields.io/badge/DL-TensorFlow-orange?logo=tensorflow)  
+![NLP](https://img.shields.io/badge/NLP-Sentiment%20Analysis-purple)  
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-TF-IDF Vectorization (final choice based on best performance)
+---
 
-(GloVe and Word2Vec were tested but not used in final model due to lower accuracy in sentiment prediction tasks)
+## 📖 Project Overview
+The **Sentiment-Based Product Recommendation & Analysis System** is an **end-to-end AI solution** that combines **sentiment analysis** of user reviews with **personalized product recommendations**.  
 
-✅ Machine Learning Models Used:
+- Built with **Machine Learning, NLP, and Recommendation Systems**  
+- Deployed using **Streamlit** for interactive user experience  
+- Designed to help **businesses and e-commerce platforms** better understand customer opinions and recommend products accordingly.  
 
-Random Forest
+---
 
-XGBoost
+## 🔍 Features
 
-LightGBM
+### ✅ Sentiment Analysis
+- **Text Preprocessing**:  
+  - Lowercasing, punctuation & digit removal  
+  - Stopword removal  
+  - POS-aware lemmatization  
 
-✅ Final model: Stacking Classifier
+- **Vectorization Approaches**:  
+  - TF-IDF (final choice based on performance)  
+  - GloVe and Word2Vec (tested but not used in final deployment)  
 
-Base estimators: RandomForestClassifier, XGBoostClassifier
+- **Models Evaluated**:  
+  - Random Forest  
+  - XGBoost  
+  - LightGBM  
 
-Meta estimator: LightGBMClassifier
+- **Final Model**:  
+  - **Stacking Classifier** with:  
+    - Base Estimators → RandomForest, XGBoost  
+    - Meta Estimator → LightGBM  
+  - **Achieved 94% Accuracy** 🎯  
 
-🎯 Achieved 94% accuracy
+---
 
-✅ Robust Preprocessing:
+### ✅ Product Recommendation System
+- **Hybrid Recommendation Engine**:  
+  - User-Product interaction matrix  
+  - Integrated with sentiment polarity scores  
+- **Generates Top-5 Personalized Product Recommendations** for any valid user ID  
 
-Lowercasing, punctuation & digit removal
+---
 
-Stopword removal
+### ✅ Streamlit Web Application
+1. **Recommendation Page**  
+   - User enters a valid **User ID**  
+   - System outputs **Top 5 recommended products**  
+2. **Sentiment Prediction Page**  
+   - User enters a **product review**  
+   - Model predicts **Positive / Negative sentiment**  
 
-POS-aware lemmatization
+📌 **Live Deployment Links:**  
+- 🌐 [Streamlit Web App](https://sentiment-recommendation-sayan.streamlit.app/)  
+- 🎥 [Live Demo (Google Drive)](https://drive.google.com/file/d/1Wfur4J0WadaKk6398mQ9yxaDlWxWYEWX/view?usp=sharing)  
 
-✅ Product Recommendation System:
+---
 
-Based on user-product interaction matrix + sentiment scores
+## 🧠 Advanced NLP Extension (BERT Pipeline)
+In addition to the ML-based models, a **BERT-based sentiment classification pipeline** was developed and deployed on Streamlit.  
 
-Recommends top 5 products for any valid user ID
+- Used **HuggingFace Transformers** for BERT fine-tuning  
+- Achieved higher generalization across **unseen and complex reviews**  
+- Provides **deep contextual understanding** beyond TF-IDF/Word2Vec  
+- Streamlit app allows switching between **Traditional ML model** and **BERT-based model**  
 
-✅ Streamlit Web App:
+---
 
-🔹 Page 1: User enters a User ID → gets top 5 product recommendations
+## 📊 Tech Stack
 
-🔹 Page 2: User enters any review → sentiment is predicted (Positive/Negative)
+| Category              | Tools / Libraries |
+|-----------------------|------------------|
+| **Frontend**          | Streamlit |
+| **ML Models**         | Scikit-learn (RF, XGBoost, LightGBM) |
+| **Deep Learning (NLP)** | HuggingFace Transformers (BERT), TensorFlow |
+| **Vectorization**     | TF-IDF, GloVe, Word2Vec |
+| **Visualization**     | Matplotlib, Seaborn |
+| **Deployment**        | Streamlit Cloud |
 
-Streamlit App :- https://sentiment-recommendation-sayan.streamlit.app/
+---
 
-Live Demo :- https://drive.google.com/file/d/1Wfur4J0WadaKk6398mQ9yxaDlWxWYEWX/view?usp=sharing
+## 📁 Project Structure
