@@ -136,8 +136,8 @@ If you found this project helpful:
 **Sayan Banerjee**  
 🎓 MSc in Statistics & Computing, BHU  
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Sayan%20Banerjee-blue?logo=linkedin)](https://www.linkedin.com/in/sayan-ban-005/)  
-[![GitHub](https://img.shields.io/badge/GitHub-SayanBanerjee-black?logo=github)](https://github.com/sayanbanerjee)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Sayan%20Banerjee-blue?logo=linkedin)](https://github.com/Sayan-ML) 
+[![GitHub](https://img.shields.io/badge/GitHub-SayanBanerjee-black?logo=github)](https://www.linkedin.com/in/sayan-banerjee-0222a4214/)  
 
 ---
 
