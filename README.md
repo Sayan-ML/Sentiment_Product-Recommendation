@@ -89,3 +89,58 @@ In addition to the ML-based models, a **BERT-based sentiment classification pipe
 ---
 
 ## 📁 Project Structure
+├── app.py # Streamlit app
+├── models/ # Trained ML/DL models
+│ ├── stacking_model.pkl
+│ ├── bert_model/
+├── utils/ # Helper functions
+│ ├── preprocess.py
+│ ├── recommend.py
+│ ├── sentiment.py
+├── data/ # Sample datasets
+├── requirements.txt # Dependencies
+└── README.md # Project documentation
+
+
+---
+
+## 🚀 Future Improvements
+- [ ] Enhance product recommendations using **Hybrid Collaborative Filtering + BERT embeddings**  
+- [ ] Add **Explainable AI (LIME/SHAP)** for better interpretability of sentiment predictions  
+- [ ] Multi-language support for non-English product reviews  
+- [ ] Integration with **real-time e-commerce APIs**  
+- [ ] Deploy mobile-friendly version with **FastAPI + Flutter/React Native**  
+
+---
+
+## 🤝 Contributing
+Contributions are welcome! 🎉  
+
+1. Fork the repository  
+2. Create a new feature branch (`feature-new`)  
+3. Commit your changes  
+4. Push the branch  
+5. Open a Pull Request  
+
+---
+
+## 💖 Show Your Support
+If you found this project helpful:  
+⭐ Star the repository  
+🔗 Share with your peers  
+📢 Mention it on LinkedIn / GitHub  
+
+---
+
+## 👨‍💻 Developed By
+**Sayan Banerjee**  
+🎓 MSc in Statistics & Computing, BHU  
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Sayan%20Banerjee-blue?logo=linkedin)](https://www.linkedin.com/in/sayan-ban-005/)  
+[![GitHub](https://img.shields.io/badge/GitHub-SayanBanerjee-black?logo=github)](https://github.com/sayanbanerjee)  
+
+---
+
+## 📄 License
+This project is licensed under the **MIT License** – you are free to use, modify, and distribute it with attribution.  
+
